@@ -31,17 +31,21 @@ spec:
 
       volumes:
 
-        - name: config
-          configMap:
-            name: homebridge-config
+        # - name: config
+        #   configMap:
+        #     name: homebridge-config
 
-        - name: homebridge-persist
-          persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}-pvclaim
+        # - name: homebridge-persist
+        #   persistentVolumeClaim:
+        #     claimName: {{ .Chart.Name }}-pvclaim
 
-        - name: homebridge-accessories
+        # - name: homebridge-accessories
+        #   persistentVolumeClaim:
+        #     claimName: {{ .Chart.Name }}-accessories
+
+        - name: homebridge-dir
           persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}-accessories
+            claimName: {{ .Chart.Name }}-dir
 
       containers:
         - name: {{ .Chart.Name }}-deployment
@@ -49,21 +53,24 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 
           volumeMounts:
-            - name: homebridge-persist
-              mountPath: /homebridge/persist
+            # - name: homebridge-persist
+            #   mountPath: /homebridge/persist
 
-            - name: homebridge-accessories
-              mountPath: /homebridge/accessories
+            # - name: homebridge-accessories
+            #   mountPath: /homebridge/accessories
 
-            {{- if .Values.config.configFile.enabled }}
-            - name: config
-              mountPath: /homebridge/config.json
-              subPath: config.json
-            {{- end }}
+            - name: homebridge-dir
+              mountPath: /homebridge
 
-            - name: config
-              mountPath: /homebridge/package.json
-              subPath: package.json
+            # {{- if .Values.config.configFile.enabled }}
+            # - name: config
+            #   mountPath: /homebridge/config.json
+            #   subPath: config.json
+            # {{- end }}
+
+            # - name: config
+            #   mountPath: /homebridge/package.json
+            #   subPath: package.json
 
           securityContext:
             privileged: true

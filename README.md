@@ -18,3 +18,5 @@ Any changes to the configuration will trigger a redeployment.
 ## Data
 
 Data in `/homebridge/persist` is retained in a volume across containers.  This contains data about Accessories and devices connected to Homebridge.  If this data is deleted or not present, the "Home" in iOS will not respond and reconfiguring the device may be necessary.
+
+helm upgrade --install --create-namespace -n homebridge homebridge -f values.yaml .
