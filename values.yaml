@@ -25,6 +25,10 @@ ports:
     name: service-mdns
     number: 51826
     protocol: TCP
+  camera-ui:
+    name: camera-ui
+    number: 8081
+    protocol: TCP
 
 service:
   ip:
