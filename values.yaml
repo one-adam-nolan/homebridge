@@ -2,7 +2,7 @@ replicaCount: 1
 
 image: 
   # digest: oznu/homebridge@sha256:ecf944ab0edc9fced9495ab9f9c52aff5bd86ab02c74dab883dc9a82d79a3eb9
-  digest: homebridge/homebridge:2023-11-28-ubuntu@sha256:bba209beaf4c58cfb387115413068bfc38e83132ac7059fbe03a600b1f94054f
+  digest: homebridge/homebridge:2024-01-08
   pullPolicy: IfNotPresent
 
 environment:
