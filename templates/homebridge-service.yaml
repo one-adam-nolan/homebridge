@@ -12,7 +12,7 @@ spec:
     app: {{ .Chart.Name }}
   externalTrafficPolicy: Local
   sessionAffinity: None
-  type: LoadBalancer
+  type: NodePort
   loadBalancerIP: {{ .Values.service.ip }}
 
   ports:

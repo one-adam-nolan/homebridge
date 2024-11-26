@@ -15,12 +15,10 @@ environment:
   packages: ffmpeg
 
 ports:
-
   ui:
     name: ui-http
     number: 80
     protocol: TCP
-
   service:
     name: service-mdns
     number: 51826
